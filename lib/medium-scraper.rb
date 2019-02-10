@@ -3,18 +3,23 @@ require 'scraper/user-loader'
 require 'scraper/post-scraper'
 
 class MediumScraper
-  # attr_reader :posts, :urls, :post
 
-    def posts_by_user(account)
-      PostScraper.posts_by_user(account)
+  def posts_by_user(account, **opts)
+    posts = UserLoader.new(account).all_posts
+
+    if opts['order'] == 'published_asc'
+      posts = posts.reverse
     end
 
-    def post_urls_by_user(account)
-      'posts_urlby_user'
+    if opts['count']
+      posts = posts.first(opts['count'].to_i)
     end
 
-    def post_by_url(url)
-      'post_by_url'
-    end
+    posts
+  end
+
+  def post_by_url(url)
+    PostScraper.parse(url)
+  end
 end
 
