@@ -1,10 +1,12 @@
-require 'scraper/scraper'
+require 'scraper/version'
+require 'scraper/user-loader'
+require 'scraper/post-scraper'
 
 class MediumScraper
   # attr_reader :posts, :urls, :post
 
     def posts_by_user(account)
-      'posts_by_user'
+      PostScraper.posts_by_user(account)
     end
 
     def post_urls_by_user(account)
