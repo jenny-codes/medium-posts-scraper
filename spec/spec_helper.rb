@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "medium/scraper"
+require "medium-scraper"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

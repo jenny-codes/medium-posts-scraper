@@ -1,15 +1,15 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "medium/scraper/version"
+require "scraper/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "medium-scraper"
-  spec.version       = Medium::Scraper::VERSION
-  spec.authors       = ["Jenny Shih"]
+  spec.version       = Scraper::VERSION
+  spec.authors       = ["Jinghua Shih"]
   spec.email         = ["jinghua.shih@gmail.com"]
 
-  spec.summary       = %q{ It crawls Medium and return posts from a specific user. }
+  spec.summary       = %q{ It crawls Medium and returns posts from a specific user. }
   spec.description   = %q{ You can parse by a user account or by a specific Medium url. }
   spec.homepage      = "https://rubygems.org/gems/medium-scraper"
   spec.license       = "MIT"
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+    spec.metadata["source_code_uri"] = "https://github.com/jing-jenny-shih/medium-posts-scraper"
     spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
@@ -40,3 +40,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
+
+# Bundler.require(:default, :development)
