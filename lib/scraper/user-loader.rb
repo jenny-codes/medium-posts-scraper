@@ -27,5 +27,4 @@ class UserLoader
     def clean_url(url)
       /.*(?=\?)/.match(url)[0]
     end
-
 end

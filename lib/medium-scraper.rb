@@ -3,7 +3,6 @@ require 'scraper/user-loader'
 require 'scraper/post-scraper'
 
 class MediumScraper
-
   def posts_by_user(account, **opts)
     posts = UserLoader.new(account).all_posts
 

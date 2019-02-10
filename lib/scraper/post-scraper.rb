@@ -2,7 +2,6 @@ require "open-uri"
 require 'nokogiri'
 
 class PostScraper
-  # class Error < StandardError; end
   class << self
     def parse(url)
       content     = Nokogiri::HTML(open(url)).search('div.section-inner')
