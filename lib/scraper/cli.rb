@@ -1,4 +1,3 @@
-# require 'medium-scraper'
 require 'thor'
 module MediumScraper
   class CLI < Thor
