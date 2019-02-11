@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require 'scraper/cli'
+MediumScraper::CLI.start
