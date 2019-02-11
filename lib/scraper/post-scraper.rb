@@ -1,9 +1,12 @@
 require "open-uri"
 require 'nokogiri'
+require 'scraper/errors'
 
 class PostScraper
   class << self
     def parse(url)
+      return nil if url.empty?
+
       content     = Nokogiri::HTML(open(url)).search('div.section-inner')
       title       = content.search('h1').text
       body        = normalize(content)
@@ -15,6 +18,9 @@ class PostScraper
         description: description,
         body: body
       }
+
+    rescue StandardError
+      raise MediumScraper::UrlNotFoundError
     end
 
     def normalize(post)

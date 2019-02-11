@@ -3,7 +3,10 @@ require 'scraper/post-scraper'
 class UserLoader
   def initialize(account)
     @homepage = Nokogiri::HTML(open("https://medium.com/@#{account}/"))
-    raise UserNotExistError if not account_exists
+  rescue StandardError
+    raise MediumScraper::UserNotFoundError
+    # p 'User not found.'
+    # exit
   end
 
   def all_posts
@@ -15,14 +18,14 @@ class UserLoader
   end
 
   private
-    def account_exists
-      @homepage.search('div.br').search('div.bs').each do |div|
-        if div.text == 'Error'
-          return false
-        end
-      end
-      return true
-    end
+    # def account_exists
+    #   @homepage.search('div.br').search('div.bs').each do |div|
+    #     if div.text == 'Error'
+    #       return false 
+    #     end
+    #   end
+    #   return true
+    # end
 
     def clean_url(url)
       /.*(?=\?)/.match(url)[0]

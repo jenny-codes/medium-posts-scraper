@@ -1,5 +1,5 @@
 Feature: MediumScraper
-  In order to portray or pluralize food
+  In order to scrape Medium post
   As a CLI
   I want to be as objective as possible
 
